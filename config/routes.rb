@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
   devise_for :models
+  resources :resources
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root to: 'application#home'
-  match '/help',    to: 'application#help',    via: 'get'
-  match '/about',   to: 'application#about',   via: 'get'
-  match '/contact', to: 'application#contact', via: 'get'
   match '/signup',  to: 'application#signup',  via: 'get'
   match '/signin',  to: 'application#signin',  via: 'get'
 
