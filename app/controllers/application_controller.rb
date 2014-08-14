@@ -15,11 +15,8 @@ class ApplicationController < ActionController::Base
   def contact
   	
   end
-
   def signup
-  end
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :username
+    
   end
   def signin
   	
