@@ -1,0 +1,29 @@
+<h1>修改素材</h1>
+
+<%= form_for @resource, url: resource_path(@resource), method: :patch do |f| %>
+	<% if @resource.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@resource.errors.count, 'error') %> prohibited this resource from being saved: </h2>
+		<ul>
+			<% @resource.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end -%>
+		</ul>
+	</div>
+	<% end -%>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+ 
+<%= link_to '返回', resources_path %>

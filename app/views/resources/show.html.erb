@@ -1,0 +1,13 @@
+<p>
+	<strong>标题:</strong>
+	<%= @resource.title %>
+</p>
+
+<p>
+	<strong>文本:</strong>
+	<%= @resource.content %>
+</p>
+
+
+<%= link_to '返回', resources_path %>
+|<%= link_to '编辑', edit_resource_path(@resource) %>

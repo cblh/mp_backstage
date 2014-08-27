@@ -1,0 +1,28 @@
+<% provide(:title, '我的素材') %>
+<h1>素材列表</h1>
+<%= link_to '素材首页', controller: 'resources' %>
+<%= link_to '添加素材', new_resource_path %>
+
+<%= will_paginate %>
+
+<table class="table table-striped">
+	<tr>
+		<th>标题</th>
+		<th>文本</th>
+		<td>查看</td>
+		<td>编辑</td>
+		<td>删除</td>
+	</tr>
+	<% @resources.each do |resource| %>
+	<tr>
+		<td><%= resource.title %></td>
+		<td><%= resource.content %></td>
+		<td><%= link_to '查看', resource_path(resource) %></td>
+		<td><%= link_to '编辑', edit_resource_path(resource) %></td>
+		<td><%= link_to '删除', resource_path(resource), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+		
+	</tr>
+	<% end %>
+</table>
+
+<%= will_paginate %>
