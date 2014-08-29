@@ -1,0 +1,27 @@
+<h1>自动回复列表</h1>
+<%= link_to '自动回复首页', controller: 'keywords' %>
+<%= link_to '添加自动回复', new_keyword_path %>
+
+<%= will_paginate %>
+
+<table class="table table-striped">
+	<tr>
+		<th>关键词</th>
+		<th>对应素材</th>
+		<td>查看</td>
+		<td>编辑</td>
+		<td>删除</td>
+	</tr>
+	<% @keywords.each do |keyword| %>
+	<tr>
+		<td><%= keyword.keyword %></td>
+		<td><%= keyword.resource_id %></td>
+		<td><%= link_to '查看', keyword_path(keyword) %></td>
+		<td><%= link_to '编辑', edit_keyword_path(keyword) %></td>
+		<td><%= link_to '删除', keyword_path(keyword), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+		
+	</tr>
+	<% end %>
+</table>
+
+<%= will_paginate %>

@@ -1,13 +1,41 @@
 Rails.application.routes.draw do
+  get 'keywords/index'
+
+  get 'keywords/create'
+
+  get 'keywords/new'
+
+  get 'keywords/edit'
+
+  get 'keywords/show'
+
+  get 'keywords/update'
+
+  get 'keywords/destroy'
+
+  get 'keyword/index'
+
+  get 'keyword/create'
+
+  get 'keyword/new'
+
+  get 'keyword/edit'
+
+  get 'keyword/show'
+
+  get 'keyword/update'
+
+  get 'keyword/destroy'
+
   devise_for :models
   resources :resources
+  
+  resources :keywords
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root to: 'application#home'
-  match '/signup',  to: 'application#signup',  via: 'get'
-  match '/signin',  to: 'application#signin',  via: 'get'
 
 
   # Example of regular route:

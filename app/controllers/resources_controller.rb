@@ -5,7 +5,6 @@ class ResourcesController < ApplicationController
 		@resources = current_model.resources.paginate(page: params[:page])
 	end
 	def new
-		@user = Model.find(current_model.id)
 		@resource = Resource.new
 	end
 	def create
