@@ -1,2 +1,13 @@
-<h1>Keywords#show</h1>
-<p>Find me in app/views/keywords/show.html.erb</p>
+<p>
+	<strong>关键词:</strong>
+	<%= @keyword.keyword %>
+</p>
+
+<p>
+	<strong>对应素材id:</strong>
+	<%= @keyword.resource_id %>
+</p>
+
+
+<%= link_to '返回', keywords_path %>
+|<%= link_to '编辑', edit_keyword_path(@keyword) %>

@@ -16,11 +16,11 @@
 	</p>
 	<p>
 		<%= f.label :resource_id %><br>
-		<%= select_tag :resource_id, options_from_collection_for_select(@resources, "id", "title") %>
+		<%= f.select :resource_id, options_from_collection_for_select(@resources, "id", "title") %>
 	</p>
 	<p>
 		<%= f.submit %>
 	</p>
 <% end -%>
 
-<%= link_to '返回', resources_path %>
+<%= link_to '返回', keywords_path %>

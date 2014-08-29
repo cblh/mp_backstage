@@ -21,16 +21,26 @@ class KeywordsController < ApplicationController
 
   def edit
     @keyword = Keyword.find(params[:id])
+    @resources = current_model.resources
   end
 
   def update
     @keyword = Keyword.find(params[:id])
+    if @keyword.updta_attributes(keyword_params)
+      redirect_to keywords_path
+    else
+      render 'edit'
+    end
   end
 
   def show
+    @keyword = Keyword.find(params[:id])
   end
 
   def destroy
+    @keyword = Keyword.find(params[:id])
+    @keyword.destroy
+    redirect_to keywords_path
   end
 
   private

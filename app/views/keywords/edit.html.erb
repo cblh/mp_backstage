@@ -1,2 +1,27 @@
-<h1>Keywords#edit</h1>
-<p>Find me in app/views/keywords/edit.html.erb</p>
+<h1>修改素材</h1>
+
+<%= form_for @keyword, url: keyword_path(@keyword), method: :patch do |f| %>
+	<% if @keyword.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@keyword.errors.count, 'error') %> prohibited this keyword from being saved: </h2>
+		<ul>
+			<% @keyword.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end -%>
+		</ul>
+	</div>
+	<% end -%>
+	<p>
+		<%= f.label :keyword %><br>
+		<%= f.text_field :keyword %>
+	</p>
+	<p>
+		<%= f.label :resource_id %><br>
+		<%= f.select :resource_id, options_from_collection_for_select(@resources, "id", "title", "#{@keyword.resource_id}") %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end -%>
+
+<%= link_to '返回', keywords_path %>
